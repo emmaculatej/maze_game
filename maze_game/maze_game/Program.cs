@@ -13,9 +13,9 @@ namespace maze_game
         {
 
             // Introduction to the Game
-            DialogueBox maze_introduction = new DialogueBox();
-            maze_introduction.Create(new Point(1, 1), new Size(10, 10), ConsoleColor.White, ConsoleColor.Black, "Welcome to the Maze!");
-            maze_introduction.Draw();
+            DialogueBox mazeIntroduction = new DialogueBox();
+            mazeIntroduction.Create(new Point(1, 1), new Size(10, 10), ConsoleColor.White, ConsoleColor.Black, "Welcome to the Maze!");
+            mazeIntroduction.Draw();
 
 
             //Box maze_area = new Box();
