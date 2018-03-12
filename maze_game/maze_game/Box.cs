@@ -17,57 +17,67 @@ namespace maze_game
             {
                 for (int height = 0; height < ShapeSize.Height; height++)
                 {
-                    Console.SetCursorPosition(ShapePosition.X + width, ShapePosition.Y + height);
-                    if (width == 0 && height == 0)
-                    {
-                        Console.Write("╔");
-                    }
-                    else if (width == ShapeSize.Width - 1 && height == 0)
-                    {
-                        Console.Write("╗");
-                    }
-                    else if (width == 0 && height == ShapeSize.Height - 1)
-                    {
-                        Console.Write("╚");
-                    }
-                    else if (width == ShapeSize.Width - 1 && height == ShapeSize.Height - 1)
-                    {
-                        Console.Write("╝");
-                    }
-                    else if ((width == 0 || width == ShapeSize.Width - 1) && (height > 0 && height < ShapeSize.Height - 1))
-                    {
-                        if (isDialogue)
-                        {
-                            if (height == 2)
-                            {
-                                if (width == 0)
-                                {
-                                    Console.Write("╠");
-                                }
-                                else if (width == ShapeSize.Width - 1)
-                                {
-                                    Console.Write("╣");
-                                }
-                            }
-                            else
-                            {
-                                Console.Write("|");
-                            }
-                        }
-                        else
-                        {
-                            Console.Write("║");
-                        }
-                    }
-                    else if ((width > 0 && width < ShapeSize.Width - 1) && (height == 0 || height == ShapeSize.Height - 1))
-                    {
-                        Console.Write("=");
-                    }
-                    else
-                    {
-                        Console.Write(" ");
-                    }
+                    // Isn't a better name for width and height x and y? 
+                    // I am guessing its some form of coordinate system
+                    DrawCell(width, height, isDialogue);
                 }
+            }
+        }
+
+        private void DrawCell(int width, int height, bool isDialogue) {
+            Console.SetCursorPosition(ShapePosition.X + width, ShapePosition.Y + height);
+            if (width == 0 && height == 0)
+            {
+                Console.Write("╔");
+            }
+            else if (width == ShapeSize.Width - 1 && height == 0)
+            {
+                Console.Write("╗");
+            }
+            else if (width == 0 && height == ShapeSize.Height - 1)
+            {
+                Console.Write("╚");
+            }
+            else if (width == ShapeSize.Width - 1 && height == ShapeSize.Height - 1)
+            {
+                Console.Write("╝");
+            }
+            else if ((width == 0 || width == ShapeSize.Width - 1) && (height > 0 && height < ShapeSize.Height - 1))
+            {
+                if (isDialogue)
+                {
+                    DrawDialog();
+                }
+                else
+                {
+                    Console.Write("║");
+                }
+            }
+            else if ((width > 0 && width < ShapeSize.Width - 1) && (height == 0 || height == ShapeSize.Height - 1))
+            {
+                Console.Write("=");
+            }
+            else
+            {
+                Console.Write(" ");
+            }
+        }
+
+        private void DrawDialog() {
+            if (height == 2)
+            {
+                if (width == 0)
+                {
+                    Console.Write("╠");
+                }
+                else if (width == ShapeSize.Width - 1)
+                {
+                    Console.Write("╣");
+                }
+            }
+            else
+            {
+                Console.Write("|");
             }
         }
     }
