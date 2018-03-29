@@ -46,7 +46,7 @@ namespace maze_game
             {
                 if (isDialogue)
                 {
-                    DrawDialog();
+                    DrawDialog(height, width);
                 }
                 else
                 {
@@ -63,7 +63,7 @@ namespace maze_game
             }
         }
 
-        private void DrawDialog() {
+        private void DrawDialog(int height, int width) {
             if (height == 2)
             {
                 if (width == 0)

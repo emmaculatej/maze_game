@@ -9,7 +9,7 @@ namespace maze_game
 {
     class MainMenu
     {
-        private UserMenu menu;
+        public UserMenu menu { get; private set; }
 
         public List<string> MenuItems { get; private set; }
 
