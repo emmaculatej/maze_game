@@ -12,6 +12,11 @@ namespace maze_game
         Box textBox = new Box();
         string Title;
 
+        public void UpdatePosition(Point point)
+        {
+            textBox.ShapePosition = point;
+        }
+
         public override void Create(Point position, Size size, ConsoleColor foregroundColour, ConsoleColor backgorundColour, string title = "")
         {
             Title = title;

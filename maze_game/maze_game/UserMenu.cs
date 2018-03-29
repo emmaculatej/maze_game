@@ -10,10 +10,21 @@ namespace maze_game
     class UserMenu
     {
         DialogueBox UserMenuBox;
+
+        private Point position;
         public Size MenuSize;
         public List<string> MenuItems { get; private set; }
         public int SelectedIndex { get; private set; }
-        public Point Position { get; private set; }
+
+        public Point Position
+        {
+            get { return position; }
+            set
+            {
+                position = value;
+                UserMenuBox.UpdatePosition(value);
+            }
+        }
         public String Title { get; private set; }
 
         public ConsoleColor BorderColour { get; set; }
